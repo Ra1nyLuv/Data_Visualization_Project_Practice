@@ -59,6 +59,7 @@ class User(db.Model):
     name = db.Column(db.String(80), nullable=False)
     password = db.Column(db.String(255), nullable=False)
     phone_number = db.Column(db.String(11), nullable=False)
+    role = db.Column(db.String(15), default='user')
 
 class SynthesisGrade(db.Model):
     __tablename__ = 'synthesis_grades' # 综合成绩
@@ -166,7 +167,7 @@ def login():
             "message": "登录成功",
             "id": user.id,
             "token": access_token,
-            "role": "admin" if user.id.startswith("admin") else "user"
+            "role": user.role
         }), 200
 
     except Exception as e:

@@ -35,6 +35,23 @@
 - Python 3.9+
 - MySQL 8.0+
 
+### 注意自行修改/.env文件配置
+### 数据库
+在/backend目录下, 运行`flask db upgrade && flask db migrate
+导入从超星导出的数据可视化课程成绩数据(本项目中为`data/BigData233-234(Python).xlsx`)
+导入脚本已经准备好, 路径:`backend/database_import`
+运行importer脚本后, 数据插入完成
+- user表导入脚本中默认设置普通用户的密码为`1234`
+- 注意数据文件存放路径
+#### 注意:出于安全考虑, 数据文件中无管理员用户数据, 运行导入脚本中未插入管理员账户, 需要在/register页面注册管理员账户, 并手动修改数据库users表将其role字段改为admin, 例如注册了一个id为admin的用户, 例如:
+```
+('admin', '管理员', 'password','13912345678', 'user');
+```
+请手动在数据库端修改role字段为admin, 例如:
+```
+update users set role = 'admin' where id = 'admin';
+```
+
 ### 前端
 1. 进入frontend目录
 2. 运行 `npm install` 安装依赖
