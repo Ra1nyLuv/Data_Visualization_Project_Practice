@@ -35,8 +35,8 @@
 - Python 3.9+
 - MySQL 8.0+
 
-### 注意自行修改/.env文件配置
-### 数据库
+### 1.注意自行修改/.env文件配置
+### 2.数据库
 在/backend目录下, 运行`flask db upgrade && flask db migrate
 导入从超星导出的数据可视化课程成绩数据(本项目中为`data/BigData233-234(Python).xlsx`)
 导入脚本已经准备好, 路径:`backend/database_import`
@@ -52,13 +52,13 @@
 update users set role = 'admin' where id = 'admin';
 ```
 
-### 前端
+### 3.前端
 1. 进入frontend目录
 2. 运行 `npm install` 安装依赖
 3. 配置环境变量(如有需要)
 4. 运行 `npm run dev` 启动开发服务器
 
-### 后端
+### 4.后端
 1. 创建Python虚拟环境
 2. 安装依赖 `pip install -r requirements.txt`
 3. 配置数据库连接(修改.env文件)
